@@ -24,7 +24,7 @@ To determine the sub-calendar ID associated with the event type, navigate in the
 
 
 ##### How this all links up:
-This script creates a new on-call contact group file to be used in `/usr/local/nagios/etc/objects/Contacts/OnCallSMSContactGroup.cfg` -- this file will need to be included in the nagios.cfg:
+This script creates a new on-call contact group file to be used in `/opt/nagios/etc/objects/Contacts/OnCallSMSContactGroup.cfg` -- this file will need to be included in the nagios.cfg:
 ~~~~
 define contactgroup{
         contactgroup_name       CSGsms
@@ -33,7 +33,7 @@ define contactgroup{
 }
 ~~~~
 
-Members reference contacts file `/usr/local/nagios/etc/objects/Contacts/CSGContactsSMS.cfg`:
+Members reference contacts file `/opt/nagios/etc/objects/Contacts/CSGContactsSMS.cfg`:
 ~~~~
 define contact{
         contact_name                    e0000001sms
@@ -89,7 +89,7 @@ define contact{
 }
 ~~~~
 
-Example Host `/usr/local/nagios/etc/objects/Linux/Hosts/SERVER123.cfg` uses prod-linux-host template:
+Example Host `/opt/nagios/etc/objects/Linux/Hosts/SERVER123.cfg` uses prod-linux-host template:
 ~~~~
 define host{
         use             prod-linux-host
@@ -100,7 +100,7 @@ define host{
 }
 ~~~~
 
-Uses template `/usr/local/nagios/etc/objects/Templates/Hosts/prod-linux-host.cfg` where CSGsms is the contact_groups:
+Uses template `/opt/nagios/etc/objects/Templates/Hosts/prod-linux-host.cfg` where CSGsms is the contact_groups:
 ~~~~
 define host{
         name                            prod-linux-host ; The name of this host template
