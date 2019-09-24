@@ -1,0 +1,25 @@
+strOutputFile = "OnCallSMSContactGroup.cfg"			                # Name of Nagios contact group file
+strContactGroup = "MyGroupName"                                     # Name of the contact group
+strContactGroupDescription = "Our SMS On-call Contact Group"
+
+strSMSContactList = 'e0000001sms, e0000002sms, e0000003sms'	        # Managers always rcv alerts
+
+strConfluenceRESTCalendarService = "https://wiki.example.com/rest/calendar-services/1.0/calendar/events.json"
+strTimeZone = 'America%2FNew_York'
+strSubCalendarID = '????????-????-????-????-????????????'	        # Run a Fiddler trace while you hide/unhide the type which contains your on-call items to determine sub-calendar ID
+strCalendarTitleDelimiter = ': '				                    # String used to separate calendar entry text from contact identifier
+
+# String command to backup running contact group config file
+cmdBackUpContactGroupConfig = "mv /opt/nagios/etc/objects/Contacts/OnCallSMSContactGroup.cfg /opt/nagios/etc/objects/Contacts/OnCallSMSContactGroup.cfg.bak"
+
+# String command to restore backed up contact group config file
+cmdRestoreContactGroupConfig = "rm /opt/nagios/etc/objects/Contacts/OnCallSMSContactGroup.cfg;mv /opt/nagios/etc/objects/Contacts/OnCallSMSContactGroup.cfg.bak /opt/nagios/etc/objects/Contacts/OnCallSMSContactGroup.cfg"
+
+# String command to place generated candidate contact group config into Nagios
+cmdCopyProposedContactsToNagios = "mv ./OnCallSMSContactGroup.cfg /opt/nagios/etc/objects/Contacts/OnCallSMSContactGroup.cfg"
+
+# String command to test nagios configuration
+cmdTestNagiosConfig = "/opt/nagios/bin/nagios -v /opt/nagios/etc/nagios.cfg"
+
+# String command to restart nagios
+cmdRestartNagios = "systemctl restart nagios"
